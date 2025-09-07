@@ -1,5 +1,4 @@
 project(reduce LANGUAGES C CXX CUDA)
 
-add_executable(reduce1 reduce1.cu)
-add_executable(reduce2 reduce2.cu)
-add_executable(reduce3 reduce3.cu)
+add_executable(naive_reduce naive_reduce.cu)
+add_executable(reduce reduce.cu)
