@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.31)
-project(reduce LANGUAGES C CXX CUDA)
+project(matrixMul LANGUAGES C CXX CUDA)
 
 set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,6 +12,10 @@ enable_language(CUDA)
 
 # Find CUDA toolkit
 find_package(CUDAToolkit REQUIRED)
+add_executable(cublaslt_gemm cublaslt_gemm.cu)
+
+target_link_libraries(cublaslt_gemm PRIVATE CUDA::cublas)
+
 # Link against CUDA libraries
 # target_link_libraries(naive_reduce PRIVATE
 #     CUDA::cudart
@@ -23,7 +27,3 @@ find_package(CUDAToolkit REQUIRED)
 # set_target_properties(naive_reduce PROPERTIES
 #     CUDA_ARCHITECTURES "75"  # Example: Turing architecture
 # )
-
-add_executable(reduce1 reduce1.cu)
-add_executable(reduce2 reduce2.cu)
-add_executable(reduce3 reduce3.cu)
