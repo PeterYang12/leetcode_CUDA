@@ -25,7 +25,7 @@
         fprintf(stderr, "CUDA Error %s:%d: %s\n",            \
                 __FILE__, __LINE__, cudaGetErrorString(_err));\
         std::exit(EXIT_FAILURE);                             \
-    }                                                        \
+    }                                                       \
 } while (0)
 
 #define CHECK_CUBLASLT(expr) do {                            \
@@ -60,7 +60,7 @@ static void cpu_gemm_row_major(int M, int N, int K,
 
 int main(int argc, char** argv)
 {
-    int M = 512, N = 512, K = 512;
+    int M = 256, N = 64, K = 128; // 默认的 GEMM 大小
     if (argc == 4) {
         M = std::atoi(argv[1]);
         N = std::atoi(argv[2]);
