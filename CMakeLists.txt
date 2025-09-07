@@ -7,3 +7,5 @@ add_executable(test main.cu)
 
 set_target_properties(test PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
+
+add_subdirectory(naive/reduce)
