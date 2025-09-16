@@ -1,8 +1,10 @@
 project(matrixMul LANGUAGES C CXX CUDA)
 
 add_executable(cublaslt_gemm cublaslt_gemm.cu)
+add_executable(cublaslt_gemm_transpose cublaslt_gemm_transpose.cu)
 
 target_link_libraries(cublaslt_gemm PRIVATE CUDA::cublas)
+target_link_libraries(cublaslt_gemm_transpose PRIVATE CUDA::cublas)
 
 # Link against CUDA libraries
 # target_link_libraries(naive_reduce PRIVATE
